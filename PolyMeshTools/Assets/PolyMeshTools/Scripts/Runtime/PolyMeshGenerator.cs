@@ -14,7 +14,8 @@ namespace eviltwo.PolyMeshTools
 
         public static void GenerateMesh(PolyMeshBlueprint blueprint, Mesh result)
         {
-            var builder = new TriangleMeshDataBuilder();
+            var matrix = Matrix4x4.TRS(blueprint.Transform.Position, Quaternion.Euler(blueprint.Transform.Rotation), blueprint.Transform.Scale);
+            var builder = new TriangleMeshDataBuilder(matrix);
             blueprint.Write(builder);
             builder.ApplyToMesh(result);
             result.name = blueprint.name;
@@ -24,6 +25,8 @@ namespace eviltwo.PolyMeshTools
 
         public class TriangleMeshDataBuilder : IPolyWriter
         {
+            private readonly Matrix4x4 _matrix;
+
             private readonly List<Vector3> _vertices = new List<Vector3>();
             public IReadOnlyList<Vector3> Vertices => _vertices;
 
@@ -35,6 +38,11 @@ namespace eviltwo.PolyMeshTools
 
             private readonly List<int> _indices = new List<int>();
             public IReadOnlyList<int> Indices => _indices;
+
+            public TriangleMeshDataBuilder(Matrix4x4 matrix)
+            {
+                _matrix = matrix;
+            }
 
             public void WriteTriangle(Triangle triangle, bool mergeDuplicates = true)
             {
@@ -58,6 +66,7 @@ namespace eviltwo.PolyMeshTools
 
             private int AddVertex(Vector3 v, Vector2 uv, Color c, bool mergeDuplicates)
             {
+                v = _matrix.MultiplyPoint(v);
                 if (mergeDuplicates)
                 {
                     for (var i = 0; i < _vertices.Count; i++)

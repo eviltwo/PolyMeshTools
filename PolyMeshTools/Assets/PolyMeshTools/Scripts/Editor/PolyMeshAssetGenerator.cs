@@ -25,8 +25,8 @@ namespace eviltwo.PolyMeshTools.Editor
             }
 
             // Generate mesh
-            mesh.name = Path.GetFileNameWithoutExtension(assetPath);
             PolyMeshGenerator.GenerateMesh(blueprint, mesh);
+            mesh.name = Path.GetFileNameWithoutExtension(assetPath);
 
             // Save asset
             if (overwrite)
