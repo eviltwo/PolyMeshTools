@@ -1,0 +1,17 @@
+{
+    "name": "com.eviltwo.poly-mesh-tools",
+    "displayName": "Poly Mesh Tools",
+    "version": "1.0.0",
+    "unity": "6000.0",
+    "description": "This is a tool that simplifies mesh generation in Unity. By writing triangles sequentially in a script, you can generate a Mesh. It is compatible with both runtime and the editor (.asset).",
+    "author": {
+        "name": "DAIKI(eviltwo)",
+        "url": "https://github.com/eviltwo"
+    },
+
+    "keywords": [
+    ],
+
+    "dependencies": {
+    }
+}
