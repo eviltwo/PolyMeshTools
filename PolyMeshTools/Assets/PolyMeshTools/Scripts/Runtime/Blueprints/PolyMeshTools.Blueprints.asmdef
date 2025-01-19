@@ -1,0 +1,16 @@
+{
+    "name": "PolyMeshTools.Blueprints",
+    "rootNamespace": "eviltwo.PolyMeshTools.Blueprints",
+    "references": [
+        "GUID:58e7838c2d07f87488bdec0393a56aec"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

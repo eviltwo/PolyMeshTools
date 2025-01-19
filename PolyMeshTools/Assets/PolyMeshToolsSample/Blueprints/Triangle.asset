@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a49a8b6badd6414390356703b674ad1, type: 3}
+  m_Name: Triangle
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  Scale: {x: 1, y: 1, z: 1}
+  P0: {x: 0, y: 1, z: 0}
+  P1: {x: 0.866, y: -0.5, z: 0}
+  P2: {x: -0.866, y: -0.5, z: 0}
+  UV0: {x: 0, y: 1}
+  UV1: {x: 1, y: 0}
+  UV2: {x: 0, y: 0}
+  C0: {r: 1, g: 1, b: 1, a: 1}
+  C1: {r: 1, g: 1, b: 1, a: 1}
+  C2: {r: 1, g: 1, b: 1, a: 1}
