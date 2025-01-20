@@ -23,7 +23,7 @@ namespace eviltwo.PolyMeshTools
             result.RecalculateBounds();
         }
 
-        public class TriangleMeshDataBuilder : IPolyWriter
+        private class TriangleMeshDataBuilder : IPolyWriter
         {
             private readonly Matrix4x4 _matrix;
 
