@@ -3,6 +3,7 @@
 ## [1.0.1] - Development
 ### Added
 - Added IPolyMeshBlueprint.
+- Added QuadBlueprint.
 ### Changed
 - Hide builder class in PolyMeshGenerator.
 
