@@ -4,6 +4,7 @@
 ### Added
 - Added IPolyMeshBlueprint.
 - Added QuadBlueprint.
+- Added RingBlueprint.
 ### Changed
 - Hide builder class in PolyMeshGenerator.
 
