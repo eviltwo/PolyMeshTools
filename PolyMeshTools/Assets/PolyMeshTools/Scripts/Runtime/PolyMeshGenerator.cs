@@ -5,20 +5,21 @@ namespace eviltwo.PolyMeshTools
 {
     public static class PolyMeshGenerator
     {
-        public static Mesh GenerateMesh(PolyMeshBlueprint blueprint)
+        public static Mesh GenerateMesh(IPolyMeshBlueprint blueprint)
         {
             var mesh = new Mesh();
             GenerateMesh(blueprint, mesh);
             return mesh;
         }
 
-        public static void GenerateMesh(PolyMeshBlueprint blueprint, Mesh result)
+        public static void GenerateMesh(IPolyMeshBlueprint blueprint, Mesh result)
         {
-            var matrix = Matrix4x4.TRS(blueprint.Transform.Position, Quaternion.Euler(blueprint.Transform.Rotation), blueprint.Transform.Scale);
+            var transform = blueprint.GetTransform();
+            var matrix = Matrix4x4.TRS(transform.Position, Quaternion.Euler(transform.Rotation), transform.Scale);
             var builder = new TriangleMeshDataBuilder(matrix);
             blueprint.Write(builder);
             builder.ApplyToMesh(result);
-            result.name = blueprint.name;
+            result.name = blueprint.GetName();
             result.RecalculateNormals();
             result.RecalculateBounds();
         }
