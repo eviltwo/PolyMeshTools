@@ -25,10 +25,10 @@ namespace eviltwo.PolyMeshTools.Blueprints
             {
                 var t0 = (float)i / (Segments - 1);
                 var t1 = (float)(i + 1) / (Segments - 1);
-                var rad0 = Mathf.Lerp(StartAngle, EndAngle, t0) * Mathf.Deg2Rad;
-                var rad1 = Mathf.Lerp(StartAngle, EndAngle, t1) * Mathf.Deg2Rad;
-                var edge0 = new Vector3(Mathf.Sin(rad0) * Radius, Mathf.Cos(rad0) * Radius, 0);
-                var edge1 = new Vector3(Mathf.Sin(rad1) * Radius, Mathf.Cos(rad1) * Radius, 0);
+                var angle0 = Mathf.Lerp(StartAngle, EndAngle, t0);
+                var angle1 = Mathf.Lerp(StartAngle, EndAngle, t1);
+                var edge0 = new Vector3(Mathf.Sin(angle0 * Mathf.Deg2Rad) * Radius, Mathf.Cos(angle0 * Mathf.Deg2Rad) * Radius, 0);
+                var edge1 = new Vector3(Mathf.Sin(angle1 * Mathf.Deg2Rad) * Radius, Mathf.Cos(angle1 * Mathf.Deg2Rad) * Radius, 0);
                 var triangle = new TriangleSequence();
                 triangle.Push(center, new Vector2((t0 + t1) * 0.5f, 0), Color);
                 triangle.Push(edge0, new Vector2(t0, 1), Color);
