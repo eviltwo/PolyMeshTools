@@ -1,12 +1,14 @@
 # PolyMeshTools
-This is a tool that simplifies mesh generation in Unity. By writing triangles sequentially in a script, you can generate a Mesh. It is compatible with both runtime and the editor (.asset).
+This is a tool to simplify Mesh generation in C#. You don't have to worry about the number of vertices or indices; you can just keep sending triangles.
+
+[日本語の記事](https://note.com/daiki_all/n/n2c0a9317d16a)
 
 # Install with UPM
 ```
 https://github.com/eviltwo/PolyMeshTools.git?path=PolyMeshTools/Assets/PolyMeshTools
 ```
 
-# Usage  
+# Usage
 ## Implement a ScriptableAsset class
 that inherits from PolyMeshBlueprint. Add as many triangles as needed in the Write(IPolyWriter writer) method.
 https://github.com/eviltwo/PolyMeshTools/blob/995663ded59a573c477123282ca12b71f449d29a/PolyMeshTools/Assets/PolyMeshTools/Scripts/Runtime/Blueprints/DiscBlueprint.cs#L6-L39
