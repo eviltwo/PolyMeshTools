@@ -9,18 +9,22 @@ https://github.com/eviltwo/PolyMeshTools.git?path=PolyMeshTools/Assets/PolyMeshT
 # Usage  
 ## Implement a ScriptableAsset class
 that inherits from PolyMeshBlueprint. Add as many triangles as needed in the Write(IPolyWriter writer) method.
-https://github.com/eviltwo/PolyMeshTools/blob/c63a3ada6737ebd21b79add1e9dcfcbb964892b0/PolyMeshTools/Assets/PolyMeshTools/Scripts/Runtime/Blueprints/TriangleBlueprint.cs#L18-L25
+https://github.com/eviltwo/PolyMeshTools/blob/995663ded59a573c477123282ca12b71f449d29a/PolyMeshTools/Assets/PolyMeshTools/Scripts/Runtime/Blueprints/DiscBlueprint.cs#L6-L39
 
-## Create a ScriptableAsset instance
-![image](https://github.com/user-attachments/assets/0eb5c0cd-c85a-4cad-af1d-b6fc240a8c43)
+## Create ScriptableAsset instance
+![image](https://github.com/user-attachments/assets/f060524a-98ba-42f0-8723-e24e7401b032)
+
+![image](https://github.com/user-attachments/assets/3977d0bf-f431-4fbb-9ebd-e1d84dfae204)
+
+![image](https://github.com/user-attachments/assets/96cc8fc8-479f-4cf5-9c6c-f980c22b83c7)
+
 
 
 ## Press the "Generate Mesh Asset"
 button on the blueprint to generate a Mesh.
 
-![image](https://github.com/user-attachments/assets/c556e846-c1ff-4ddb-a183-dc941acead9f)
+![image](https://github.com/user-attachments/assets/08aa6ee0-3aa7-4d22-a26c-fe633ba951e1)
 
-![image](https://github.com/user-attachments/assets/35f25f7d-0804-454a-98dc-0ae1611b557d)
 
 
 # Support My Work
