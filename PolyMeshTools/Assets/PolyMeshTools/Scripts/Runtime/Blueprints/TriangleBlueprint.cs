@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace eviltwo.PolyMeshTools.Blueprints
 {
-    [CreateAssetMenu(fileName = nameof(TriangleBlueprint), menuName = nameof(PolyMeshTools) + "/" + nameof(Blueprints) + "/" + nameof(TriangleBlueprint))]
+    [CreateAssetMenu(fileName = "Triangle", menuName = nameof(PolyMeshTools) + "/" + nameof(Blueprints) + "/" + "Triangle")]
     public class TriangleBlueprint : PolyMeshBlueprint
     {
         public Vector3 P0 = new Vector3(0, 1, 0);
