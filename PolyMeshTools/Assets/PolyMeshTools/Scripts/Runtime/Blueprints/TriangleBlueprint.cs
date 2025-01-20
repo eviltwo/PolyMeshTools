@@ -1,3 +1,4 @@
+using eviltwo.PolyMeshTools.BlueprintModules;
 using UnityEngine;
 
 namespace eviltwo.PolyMeshTools.Blueprints
@@ -17,11 +18,11 @@ namespace eviltwo.PolyMeshTools.Blueprints
 
         public override void Write(IPolyWriter writer)
         {
-            var triangle = new Triangle();
+            var triangle = new TriangleSequence();
             triangle.Push(P0, UV0, C0);
             triangle.Push(P1, UV1, C1);
             triangle.Push(P2, UV2, C2);
-            writer.WriteTriangle(triangle);
+            triangle.Write(writer);
         }
     }
 }

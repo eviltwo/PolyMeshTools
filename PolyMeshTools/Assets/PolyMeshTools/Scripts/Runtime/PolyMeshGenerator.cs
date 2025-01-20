@@ -44,11 +44,6 @@ namespace eviltwo.PolyMeshTools
                 _matrix = matrix;
             }
 
-            public void WriteTriangle(Triangle triangle, bool mergeDuplicates = true)
-            {
-                WriteTriangle(triangle.V0, triangle.V1, triangle.V2, triangle.UV0, triangle.UV1, triangle.UV2, triangle.C0, triangle.C1, triangle.C2, mergeDuplicates);
-            }
-
             public void WriteTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Vector2 uv0, Vector2 uv1, Vector2 uv2, bool mergeDuplicates = true)
             {
                 WriteTriangle(v0, v1, v2, uv0, uv1, uv2, Color.white, Color.white, Color.white, mergeDuplicates);
