@@ -16,6 +16,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
 
         public override void Write(IPolyWriter writer)
         {
+            var tri = new TriangleSequence();
             var offsetX = (1f / Segments.x) / 2;
             for (var segY = 0; segY < Segments.y + 1; segY++)
             {
@@ -41,7 +42,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
                     var y1z1 = Mathf.Sin(y1xt1 * 2 * Mathf.PI);
                     if (r0 > 0)
                     {
-                        var tri = new TriangleSequence();
+                        tri.Clear();
                         tri.Push(new Vector3(y0x0 * r0, y0, y0z0 * r0), new Vector2(y0xt0, 1 - yt0));
                         tri.Push(new Vector3(y0x1 * r0, y0, y0z1 * r0), new Vector2(y0xt1, 1 - yt0));
                         tri.Push(new Vector3(y1x0 * r1, y1, y1z0 * r1), new Vector2(y1xt0, 1 - yt1));
@@ -49,7 +50,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
                     }
                     if (r1 > 0)
                     {
-                        var tri = new TriangleSequence();
+                        tri.Clear();
                         tri.Push(new Vector3(y0x1 * r0, y0, y0z1 * r0), new Vector2(y0xt1, 1 - yt0));
                         tri.Push(new Vector3(y1x1 * r1, y1, y1z1 * r1), new Vector2(y1xt1, 1 - yt1));
                         tri.Push(new Vector3(y1x0 * r1, y1, y1z0 * r1), new Vector2(y1xt0, 1 - yt1));

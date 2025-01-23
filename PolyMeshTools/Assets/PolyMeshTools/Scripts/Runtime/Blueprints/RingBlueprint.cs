@@ -24,6 +24,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
 
         public override void Write(IPolyWriter writer)
         {
+            var quad = new QuadSequence();
             for (var i = 0; i < Segments - 1; i++)
             {
                 var t0 = (float)i / (Segments - 1);
@@ -34,7 +35,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
                 var inner1 = new Vector3(Mathf.Sin(angle1 * Mathf.Deg2Rad) * InnerRadius, Mathf.Cos(angle1 * Mathf.Deg2Rad) * InnerRadius, InnerOffset);
                 var outer0 = new Vector3(Mathf.Sin(angle0 * Mathf.Deg2Rad) * OuterRadius, Mathf.Cos(angle0 * Mathf.Deg2Rad) * OuterRadius, OuterOffset);
                 var outer1 = new Vector3(Mathf.Sin(angle1 * Mathf.Deg2Rad) * OuterRadius, Mathf.Cos(angle1 * Mathf.Deg2Rad) * OuterRadius, OuterOffset);
-                var quad = new QuadSequence();
+                quad.Clear();
                 quad.Push(inner0, new Vector2(t0, 0), Color);
                 quad.Push(outer0, new Vector2(t0, 1), Color);
                 quad.Push(outer1, new Vector2(t1, 1), Color);
