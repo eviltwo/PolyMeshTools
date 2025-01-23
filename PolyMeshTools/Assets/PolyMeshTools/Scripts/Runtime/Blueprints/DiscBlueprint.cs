@@ -20,6 +20,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
 
         public override void Write(IPolyWriter writer)
         {
+            var triangle = new TriangleSequence();
             var center = Vector3.zero;
             for (var i = 0; i < Segments - 1; i++)
             {
@@ -29,7 +30,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
                 var angle1 = Mathf.Lerp(StartAngle, EndAngle, t1);
                 var edge0 = new Vector3(Mathf.Sin(angle0 * Mathf.Deg2Rad) * Radius, Mathf.Cos(angle0 * Mathf.Deg2Rad) * Radius, 0);
                 var edge1 = new Vector3(Mathf.Sin(angle1 * Mathf.Deg2Rad) * Radius, Mathf.Cos(angle1 * Mathf.Deg2Rad) * Radius, 0);
-                var triangle = new TriangleSequence();
+                triangle.Clear();
                 triangle.Push(center, new Vector2((t0 + t1) * 0.5f, 0), Color);
                 triangle.Push(edge0, new Vector2(t0, 1), Color);
                 triangle.Push(edge1, new Vector2(t1, 1), Color);

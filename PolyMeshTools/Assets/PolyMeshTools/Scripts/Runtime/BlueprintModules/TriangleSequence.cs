@@ -11,6 +11,11 @@ namespace eviltwo.PolyMeshTools.BlueprintModules
         private int _pushedCount;
         public int PushedCount => _pushedCount;
 
+        public void Clear()
+        {
+            _pushedCount = 0;
+        }
+
         public void Push(Vector3 v, Vector2 uv)
         {
             Push(v, uv, Color.white);
