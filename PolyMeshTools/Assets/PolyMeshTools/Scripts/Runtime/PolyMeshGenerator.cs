@@ -21,6 +21,7 @@ namespace eviltwo.PolyMeshTools
             builder.ApplyToMesh(result);
             result.name = blueprint.GetName();
             result.RecalculateNormals();
+            result.RecalculateTangents();
             result.RecalculateBounds();
         }
 
