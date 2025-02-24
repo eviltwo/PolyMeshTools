@@ -12,9 +12,9 @@ namespace eviltwo.PolyMeshTools.Blueprints
         public Vector2 UV0 = new Vector2(0.5f, 1);
         public Vector2 UV1 = new Vector2(1, 0);
         public Vector2 UV2 = new Vector2(0, 0);
-        public Color C0 = Color.white;
-        public Color C1 = Color.white;
-        public Color C2 = Color.white;
+        public Color32 C0 = new Color32(255, 255, 255, 255);
+        public Color32 C1 = new Color32(255, 255, 255, 255);
+        public Color32 C2 = new Color32(255, 255, 255, 255);
 
         public override void Write(IPolyWriter writer)
         {

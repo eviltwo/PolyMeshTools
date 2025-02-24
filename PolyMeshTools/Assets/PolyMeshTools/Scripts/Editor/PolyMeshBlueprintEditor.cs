@@ -6,16 +6,20 @@ namespace eviltwo.PolyMeshTools.Editor
     [CustomEditor(typeof(PolyMeshBlueprint), true)]
     public class PolyMeshBlueprintEditor : UnityEditor.Editor
     {
+        private static bool IncludeColor = false;
+
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
             EditorGUILayout.Space();
 
+            IncludeColor = EditorGUILayout.Toggle("Include Color", IncludeColor);
+
             if (GUILayout.Button("Generate Mesh Asset"))
             {
                 PolyMeshBlueprint blueprint = (PolyMeshBlueprint)target;
-                PolyMeshAssetGenerator.GenerateMeshAsset(blueprint);
+                PolyMeshAssetGenerator.GenerateMeshAsset(blueprint, IncludeColor);
             }
         }
 
@@ -49,7 +53,7 @@ namespace eviltwo.PolyMeshTools.Editor
         public override void OnPreviewGUI(Rect r, GUIStyle background)
         {
             PolyMeshBlueprint blueprint = (PolyMeshBlueprint)target;
-            PolyMeshGenerator.GenerateMesh(blueprint, _previewMesh);
+            PolyMeshGenerator.GenerateMesh(blueprint, _previewMesh, false);
             _meshPreview.OnPreviewGUI(r, background);
         }
     }
