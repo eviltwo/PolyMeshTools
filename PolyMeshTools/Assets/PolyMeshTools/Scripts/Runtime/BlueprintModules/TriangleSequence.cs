@@ -6,7 +6,7 @@ namespace eviltwo.PolyMeshTools.BlueprintModules
     {
         private Vector3[] _vertices = new Vector3[3];
         private Vector2[] _uvs = new Vector2[3];
-        private Color[] _colors = new Color[3];
+        private Color32[] _colors = new Color32[3];
 
         private int _pushedCount;
         public int PushedCount => _pushedCount;
@@ -18,10 +18,10 @@ namespace eviltwo.PolyMeshTools.BlueprintModules
 
         public void Push(Vector3 v, Vector2 uv)
         {
-            Push(v, uv, Color.white);
+            Push(v, uv, new Color32(255, 255, 255, 255));
         }
 
-        public void Push(Vector3 v, Vector2 uv, Color c)
+        public void Push(Vector3 v, Vector2 uv, Color32 c)
         {
             if (_pushedCount >= 3)
             {

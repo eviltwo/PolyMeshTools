@@ -10,7 +10,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
         public float StartAngle = 0;
         public float EndAngle = 360;
         public int Segments = 32;
-        public Color Color = Color.white;
+        public Color32 Color = new Color32(255, 255, 255, 255);
 
         private void OnValidate()
         {

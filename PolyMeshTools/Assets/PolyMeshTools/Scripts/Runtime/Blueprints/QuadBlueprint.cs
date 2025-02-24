@@ -6,7 +6,7 @@ namespace eviltwo.PolyMeshTools.Blueprints
     [CreateAssetMenu(fileName = "Quad", menuName = nameof(PolyMeshTools) + "/" + nameof(Blueprints) + "/" + "Quad")]
     public class QuadBlueprint : PolyMeshBlueprint
     {
-        public Color Color = Color.white;
+        public Color32 Color = new Color32(255, 255, 255, 255);
 
         public override void Write(IPolyWriter writer)
         {

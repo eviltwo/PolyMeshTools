@@ -5,20 +5,20 @@ namespace eviltwo.PolyMeshTools
 {
     public static class PolyMeshGenerator
     {
-        public static Mesh GenerateMesh(IPolyMeshBlueprint blueprint)
+        public static Mesh GenerateMesh(IPolyMeshBlueprint blueprint, bool includeColor)
         {
             var mesh = new Mesh();
-            GenerateMesh(blueprint, mesh);
+            GenerateMesh(blueprint, mesh, includeColor);
             return mesh;
         }
 
-        public static void GenerateMesh(IPolyMeshBlueprint blueprint, Mesh result)
+        public static void GenerateMesh(IPolyMeshBlueprint blueprint, Mesh result, bool includeColor)
         {
             var transform = blueprint.GetTransform();
             var matrix = Matrix4x4.TRS(transform.Position, Quaternion.Euler(transform.Rotation), transform.Scale);
             var builder = new TriangleMeshDataBuilder(matrix);
             blueprint.Write(builder);
-            builder.ApplyToMesh(result);
+            builder.ApplyToMesh(result, includeColor);
             result.name = blueprint.GetName();
             result.RecalculateNormals();
             result.RecalculateTangents();
@@ -35,8 +35,8 @@ namespace eviltwo.PolyMeshTools
             private readonly List<Vector2> _uvs = new List<Vector2>();
             public IReadOnlyList<Vector2> UVs => _uvs;
 
-            private readonly List<Color> _colors = new List<Color>();
-            public IReadOnlyList<Color> Colors => _colors;
+            private readonly List<Color32> _colors = new List<Color32>();
+            public IReadOnlyList<Color32> Colors => _colors;
 
             private readonly List<int> _indices = new List<int>();
             public IReadOnlyList<int> Indices => _indices;
@@ -51,7 +51,7 @@ namespace eviltwo.PolyMeshTools
                 WriteTriangle(v0, v1, v2, uv0, uv1, uv2, Color.white, Color.white, Color.white, mergeDuplicates);
             }
 
-            public void WriteTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Vector2 uv0, Vector2 uv1, Vector2 uv2, Color c0, Color c1, Color c2, bool mergeDuplicates = true)
+            public void WriteTriangle(Vector3 v0, Vector3 v1, Vector3 v2, Vector2 uv0, Vector2 uv1, Vector2 uv2, Color32 c0, Color32 c1, Color32 c2, bool mergeDuplicates = true)
             {
                 var i0 = AddVertex(v0, uv0, c0, mergeDuplicates);
                 var i1 = AddVertex(v1, uv1, c1, mergeDuplicates);
@@ -61,14 +61,14 @@ namespace eviltwo.PolyMeshTools
                 _indices.Add(i2);
             }
 
-            private int AddVertex(Vector3 v, Vector2 uv, Color c, bool mergeDuplicates)
+            private int AddVertex(Vector3 v, Vector2 uv, Color32 c, bool mergeDuplicates)
             {
                 v = _matrix.MultiplyPoint(v);
                 if (mergeDuplicates)
                 {
                     for (var i = 0; i < _vertices.Count; i++)
                     {
-                        if (_vertices[i] == v && _uvs[i] == uv && _colors[i] == c)
+                        if (_vertices[i] == v && _uvs[i] == uv && _colors[i].Equals(c))
                         {
                             return i;
                         }
@@ -81,12 +81,17 @@ namespace eviltwo.PolyMeshTools
                 return _vertices.Count - 1;
             }
 
-            public void ApplyToMesh(Mesh mesh)
+            public void ApplyToMesh(Mesh mesh, bool includeColor)
             {
-                mesh.Clear();
+                mesh.Clear(false);
                 mesh.SetVertices(_vertices);
                 mesh.SetUVs(0, _uvs);
-                mesh.SetColors(_colors);
+
+                if (includeColor)
+                {
+                    mesh.SetColors(_colors);
+                }
+
                 mesh.SetIndices(_indices, MeshTopology.Triangles, 0);
             }
         }

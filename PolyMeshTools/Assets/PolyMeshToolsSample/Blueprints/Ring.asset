@@ -23,4 +23,6 @@ MonoBehaviour:
   StartAngle: 0
   EndAngle: 300
   Segments: 16
-  Color: {r: 1, g: 1, b: 1, a: 1}
+  Color:
+    serializedVersion: 2
+    rgba: 4294967295

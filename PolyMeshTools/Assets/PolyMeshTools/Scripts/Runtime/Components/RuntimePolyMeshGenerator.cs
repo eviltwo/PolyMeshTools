@@ -8,6 +8,8 @@ namespace eviltwo.PolyMeshTools.Components
 
         public MeshFilter MeshFilter = null;
 
+        public bool IncludeColor = false;
+
         public bool GenerateOnAwake = true;
 
         [Header("Result")]
@@ -29,7 +31,7 @@ namespace eviltwo.PolyMeshTools.Components
 
         public void GenerateMesh()
         {
-            GeneratedMesh = PolyMeshGenerator.GenerateMesh(Blueprint);
+            GeneratedMesh = PolyMeshGenerator.GenerateMesh(Blueprint, IncludeColor);
         }
 
         public void AttachMesh()
