@@ -1,8 +1,9 @@
 {
-    "name": "PolyMeshTools.Components",
-    "rootNamespace": "eviltwo.PolyMeshTools.Components",
+    "name": "PolyMeshTools.RuntimeGenerators",
+    "rootNamespace": "eviltwo.PolyMeshTools.RuntimeGenerators",
     "references": [
-        "GUID:58e7838c2d07f87488bdec0393a56aec"
+        "GUID:58e7838c2d07f87488bdec0393a56aec",
+        "GUID:ff4816d1c9684de4e9b92a3ce6358a82"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
