@@ -191,7 +191,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381816612}
-  m_Mesh: {fileID: 1506906444}
+  m_Mesh: {fileID: 1216787300}
 --- !u!4 &381816616
 Transform:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1506906444}
+  m_Mesh: {fileID: 1216787300}
 --- !u!1 &954111233
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +446,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1506906444
+--- !u!43 &1216787300
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
