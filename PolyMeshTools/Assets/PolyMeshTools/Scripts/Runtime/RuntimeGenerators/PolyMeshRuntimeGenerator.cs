@@ -64,10 +64,10 @@ namespace eviltwo.PolyMeshTools.RuntimeGenerators
                 mesh = new Mesh();
             }
             
+            PolyMeshGenerator.GenerateMesh(this, mesh, IncludeColor);
+            
             if (MeshFilter != null) MeshFilter.sharedMesh = mesh;
             if (MeshCollider != null) MeshCollider.sharedMesh = mesh;
-            
-            PolyMeshGenerator.GenerateMesh(this, mesh, IncludeColor);
         }
 
         public abstract void Write(IPolyWriter writer);
